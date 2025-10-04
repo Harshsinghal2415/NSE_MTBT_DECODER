@@ -95,13 +95,6 @@ Sequence,Symbol,Timestamp,Price(INR),Quantity,Side,Time,Status
 
 ---
 
-## 💼 **Why This Impresses Recruiters**
-
-### **🎯 Financial Technology Expertise**
-- **NSE Protocol Implementation** - Real Indian stock exchange format
-- **High-Frequency Trading** concepts and optimizations
-- **Market Data Processing** with institutional accuracy
-- **Risk Management** - Circuit breakers and validation
 
 ### **⚡ Performance Engineering**
 - **Microsecond Optimization** - Critical for trading systems
