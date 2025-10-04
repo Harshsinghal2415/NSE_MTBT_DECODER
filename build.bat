@@ -1,4 +1,5 @@
 @echo off
+setlocal enabledelayedexpansion
 REM Windows build script for NSE MTBT Decoder
 
 echo Building NSE MTBT Decoder...
@@ -68,7 +69,29 @@ if %ERRORLEVEL% NEQ 0 (
 
 echo Build successful!
 echo.
+
+REM Add MinGW to PATH for this session
+set "MINGW_BIN="
+if defined COMPILER (
+    for %%i in ("%COMPILER%") do set "MINGW_BIN=%%~dpi"
+    if defined MINGW_BIN (
+        echo Adding MinGW to PATH: !MINGW_BIN!
+        set "PATH=!MINGW_BIN!;%PATH%"
+    )
+)
+
 echo Usage: NSE_MTBT_Decoder.exe --help
 echo Example: NSE_MTBT_Decoder.exe --count 1000 --csv --output trades.csv
+echo.
+
+REM Test run with help
+echo Testing executable...
+NSE_MTBT_Decoder.exe --help >nul 2>&1
+if %ERRORLEVEL% EQU 0 (
+    echo ✅ Executable runs correctly!
+) else (
+    echo ⚠️  Note: If executable fails to run, ensure MinGW DLLs are in PATH
+)
+
 echo.
 pause

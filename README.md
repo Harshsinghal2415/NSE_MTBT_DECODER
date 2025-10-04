@@ -63,19 +63,26 @@ auto [isValid, message, stats] = decoder.processMessage(feedData);
 git clone https://github.com/Harshsinghal2415/NSE_MTBT_DECODER.git
 cd NSE_MTBT_DECODER
 
-# Quick build (Windows)
-./build.bat
+# Windows (Recommended - handles MinGW PATH automatically)
+./build.bat          # Build the project
+./run.bat --help     # Run with automatic environment setup
 
-# Quick build (Linux/macOS)  
-chmod +x build.sh && ./build.sh
+# Linux/macOS  
+chmod +x build.sh && ./build.sh    # Build
+./NSE_MTBT_Decoder --help          # Run
 
 # Or manual build
 g++ -std=c++17 -Wall -Wextra -O2 -I src src/*.cpp -o NSE_MTBT_Decoder
 ```
 
+**Windows Note**: The project requires MinGW runtime DLLs. Use `run.bat` for automatic setup, or manually add MinGW's `bin` directory to PATH before running the executable directly.
+
 ### **Usage Examples**
 ```bash
-# Process 1000 messages with CSV export
+# Windows - using the convenience runner
+./run.bat --count 1000 --csv --output trades.csv
+
+# Direct execution (ensure MinGW is in PATH)
 ./NSE_MTBT_Decoder --count 1000 --csv --output trades.csv
 
 # Test error handling with malformed data
