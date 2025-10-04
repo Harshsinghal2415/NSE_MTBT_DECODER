@@ -3,7 +3,7 @@
 
 echo "Building NSE MTBT Decoder..."
 
-# Check if g++ is available
+# Check if g++ is available and supports C++17
 if ! command -v g++ &> /dev/null; then
     echo "Error: g++ not found. Please install GCC"
     echo "Ubuntu/Debian: sudo apt-get install build-essential"
@@ -11,6 +11,15 @@ if ! command -v g++ &> /dev/null; then
     echo "macOS: xcode-select --install"
     exit 1
 fi
+
+# Check C++17 support
+if ! g++ -std=c++17 -x c++ -c /dev/null -o /dev/null 2>/dev/null; then
+    echo "Error: Your g++ version doesn't support C++17"
+    echo "Please install GCC 7.0 or later"
+    exit 1
+fi
+
+echo "Using g++ version: $(g++ --version | head -n1)"
 
 # Clean previous build
 rm -f NSE_MTBT_Decoder
