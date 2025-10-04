@@ -8,7 +8,7 @@
 namespace nse::mtbt {
 
 /**
- * Modern C++17 feed simulator
+ * Feed simulator for NSE MTBT data
  */
 class FeedSimulator {
 public:

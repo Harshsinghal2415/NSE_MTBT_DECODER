@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
-REM Run script for NSE MTBT Decoder - automatically sets up MinGW environment
+REM NSE MTBT Decoder runner - sets up MinGW environment automatically
 
-echo 🚀 NSE MTBT Decoder Runner
+echo 🚀 NSE MTBT Decoder
 echo ═══════════════════════════════════
 
 REM Check if executable exists

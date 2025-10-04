@@ -24,7 +24,7 @@ namespace colors {
 }
 
 /**
- * Modern C++17 message formatting utilities
+ * Message formatting utilities
  */
 class MessageFormatter {
 public:
@@ -50,7 +50,7 @@ public:
 };
 
 /**
- * Modern C++17 performance monitoring
+ * Performance monitoring
  */
 class PerformanceMonitor {
 public:

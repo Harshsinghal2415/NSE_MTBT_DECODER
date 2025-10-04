@@ -8,7 +8,7 @@
 namespace nse::mtbt {
 
 /**
- * Modern C++17 high-performance decoder
+ * High-performance message decoder
  */
 class Decoder {
 public:

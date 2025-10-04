@@ -12,7 +12,7 @@
 namespace nse::mtbt::app {
 
 /**
- * Modern C++17 application configuration
+ * Application configuration
  */
 struct ApplicationConfig {
     bool writeCsv{false};
@@ -36,8 +36,8 @@ void printUsage(const std::string& programName) noexcept {
     using namespace nse::mtbt::utils;
     
     std::cout << colors::BOLD << colors::CYAN 
-              << "🚀 NSE MTBT Feed Decoder (Modern C++17)\n" << colors::RESET
-              << colors::GREEN << "Industry-ready high-performance market data decoder\n\n" << colors::RESET
+              << "🚀 NSE MTBT Feed Decoder\n" << colors::RESET
+              << colors::GREEN << "Fast market data decoder for NSE trade feeds\n\n" << colors::RESET
               << colors::BOLD << "Usage: " << colors::RESET << programName << " [options]\n\n"
               << colors::BOLD << "Options:\n" << colors::RESET
               << "  " << colors::YELLOW << "--csv" << colors::RESET 
@@ -59,7 +59,7 @@ void printUsage(const std::string& programName) noexcept {
 }
 
 /**
- * Modern argument parser
+ * Argument parser
  */
 [[nodiscard]] std::optional<ApplicationConfig> parseArguments(int argc, char* argv[]) noexcept {
     ApplicationConfig config{};
@@ -152,7 +152,7 @@ int main(int argc, char* argv[]) {
     const auto& config = *configOpt;
     
     std::cout << colors::BOLD << colors::CYAN 
-              << "🚀 NSE MTBT Feed Decoder (Modern C++17)" << colors::RESET << "\n"
+              << "🚀 NSE MTBT Feed Decoder" << colors::RESET << "\n"
               << colors::GREEN << "═══════════════════════════════════════════════════════════" 
               << colors::RESET << "\n";
     

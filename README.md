@@ -1,10 +1,10 @@
-# 🚀 NSE MTBT Feed Decoder - High-Performance C++17 Financial Engine
+# 🚀 NSE MTBT Feed Decoder - Fast C++17 Market Data Processor
 
 [![C++17](https://img.shields.io/badge/C++17-Modern-blue)](https://en.cppreference.com/w/cpp/17)
 [![NSE Compliant](https://img.shields.io/badge/NSE-MTBT_Compliant-green)](https://www.nseindia.com/)
-[![Performance](https://img.shields.io/badge/Performance-41M+_msg/sec-red)](https://github.com/Harshsinghal2415/NSE_MTBT_DECODER)
+[![Performance](https://img.shields.io/badge/Performance-25M+_msg/sec-red)](https://github.com/Harshsinghal2415/NSE_MTBT_DECODER)
 
-> **A blazing-fast NSE (National Stock Exchange) MTBT decoder engineered with modern C++17 for ultra-low latency market data processing. Achieves 41+ million messages/second with microsecond-level precision.**
+> **A fast NSE (National Stock Exchange) MTBT decoder built with C++17 for real-time market data processing. Processes 25+ million messages/second with microsecond precision.**
 
 ## 🎯 **Project Highlights**
 
@@ -14,7 +14,7 @@
 - **💾 Zero-Copy Processing** - Memory-efficient architecture
 - **🎯 100% Accuracy** - Complete message validation
 
-### **🔧 Modern C++17 Excellence**
+### **🔧 C++17 Implementation**
 - **std::optional** for safe nullable types
 - **constexpr if** for compile-time optimizations  
 - **Structured bindings** for clean code

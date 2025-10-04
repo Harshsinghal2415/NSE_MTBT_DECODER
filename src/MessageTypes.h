@@ -8,7 +8,7 @@
 namespace nse::mtbt {
 
 /**
- * Modern C++17 Trade Side enumeration
+ * Trade Side enumeration
  */
 enum class TradeSide : std::uint8_t {
     BUY = 0,
@@ -25,7 +25,7 @@ enum class ValidationLevel : std::uint8_t {
 };
 
 /**
- * Modern C++17 validation result with optional error message
+ * Validation result with optional error message
  */
 struct ValidationResult {
     bool isValid;
@@ -62,7 +62,7 @@ struct TradeMessage {
     }
     
     /**
-     * Modern C++17 validation with structured binding support
+     * Validation with structured binding support
      */
     [[nodiscard]] ValidationResult validate() const noexcept {
         if (sequenceNumber == 0) {
@@ -115,7 +115,7 @@ struct TradeMessage {
 };
 
 /**
- * Modern C++17 helper functions
+ * Helper functions
  */
 [[nodiscard]] inline std::string_view formatTradeSide(TradeSide side) noexcept {
     return (side == TradeSide::BUY) ? "BUY" : "SELL";
