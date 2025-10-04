@@ -108,12 +108,6 @@ Sequence,Symbol,Timestamp,Price(INR),Quantity,Side,Time,Status
 - **RAII Patterns** for automatic resource management
 - **Move Semantics** for performance optimization
 
-### **🏢 Industry Applications**
-Perfect for roles at:
-- **Trading Firms** (Jane Street, Citadel, Two Sigma)
-- **Investment Banks** (Goldman Sachs, Morgan Stanley, JP Morgan)
-- **Indian Fintech** (Zerodha, Upstox, Angel One)
-- **Financial Platforms** (Bloomberg, Refinitiv)
 
 ---
 
