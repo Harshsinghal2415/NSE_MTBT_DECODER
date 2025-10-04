@@ -3,30 +3,42 @@
 
 echo "Building NSE MTBT Decoder..."
 
-# Check if g++ is available and supports C++17
-if ! command -v g++ &> /dev/null; then
-    echo "Error: g++ not found. Please install GCC"
-    echo "Ubuntu/Debian: sudo apt-get install build-essential"
-    echo "CentOS/RHEL: sudo yum install gcc-c++"
-    echo "macOS: xcode-select --install"
+# Find the best available C++ compiler
+COMPILER=""
+
+# Check for modern GCC versions first
+for gcc_cmd in g++-13 g++-12 g++-11 g++-10 g++-9 g++-8 g++-7 g++; do
+    if command -v "$gcc_cmd" &> /dev/null; then
+        # Check if it supports C++17
+        if "$gcc_cmd" -std=c++17 -x c++ -c /dev/null -o /dev/null 2>/dev/null; then
+            COMPILER="$gcc_cmd"
+            echo "Using compiler: $COMPILER ($(\"$gcc_cmd\" --version | head -n1))"
+            break
+        fi
+    fi
+done
+
+# If no suitable compiler found
+if [ -z "$COMPILER" ]; then
+    echo "Error: No C++17 compatible compiler found!"
+    echo
+    echo "Please install a modern GCC compiler:"
+    echo "  Ubuntu/Debian: sudo apt-get install build-essential"
+    echo "  CentOS/RHEL:   sudo yum install gcc-c++"
+    echo "  Fedora:        sudo dnf install gcc-c++"
+    echo "  macOS:         xcode-select --install"
+    echo "  Arch Linux:    sudo pacman -S gcc"
+    echo
+    echo "Minimum required: GCC 7.0 or later for C++17 support"
     exit 1
 fi
-
-# Check C++17 support
-if ! g++ -std=c++17 -x c++ -c /dev/null -o /dev/null 2>/dev/null; then
-    echo "Error: Your g++ version doesn't support C++17"
-    echo "Please install GCC 7.0 or later"
-    exit 1
-fi
-
-echo "Using g++ version: $(g++ --version | head -n1)"
 
 # Clean previous build
 rm -f NSE_MTBT_Decoder
 
 # Compile with C++17
 echo "Compiling with C++17..."
-g++ -std=c++17 -Wall -Wextra -O2 -I src src/*.cpp -o NSE_MTBT_Decoder
+"$COMPILER" -std=c++17 -Wall -Wextra -O2 -I src src/*.cpp -o NSE_MTBT_Decoder
 
 if [ $? -ne 0 ]; then
     echo "Build failed!"
