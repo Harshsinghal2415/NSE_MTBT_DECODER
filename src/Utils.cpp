@@ -13,7 +13,7 @@ std::string MessageFormatter::formatMessage(const TradeMessage& msg) {
     
     oss << std::left
         << "Seq: " << std::setw(6) << msg.sequenceNumber
-        << " | Token: " << std::setw(6) << msg.symbolToken
+        << " | Symbol: " << std::setw(10) << msg.getSymbolName()
         << " | Time: " << std::setw(12) << msg.timestamp
         << " | " << colors::GREEN << "₹" << std::setw(8) << std::fixed 
         << std::setprecision(2) << msg.getPriceInRupees() << colors::RESET
@@ -43,7 +43,7 @@ std::optional<std::string> MessageFormatter::formatMessageAsCsv(const TradeMessa
     if (const auto timeStr = msg.getFormattedTime(); timeStr) {
         std::ostringstream oss;
         oss << msg.sequenceNumber << ","
-            << msg.symbolToken << ","
+            << msg.getSymbolName() << ","  // Use symbol name instead of token
             << msg.timestamp << ","
             << std::fixed << std::setprecision(2) << msg.getPriceInRupees() << ","
             << msg.quantity << ","

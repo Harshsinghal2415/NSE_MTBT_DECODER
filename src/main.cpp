@@ -187,6 +187,12 @@ int main(int argc, char* argv[]) {
     Decoder decoder{};
     decoder.setValidationLevel(config.validationLevel);
     
+    // Enable debug mode for first few messages to show binary decoding
+    if (config.messageCount <= 10) {
+        decoder.setDebugMode(true);
+        std::cout << colors::YELLOW << "\n🔍 Debug mode enabled - showing binary decoding details\n" << colors::RESET;
+    }
+    
     const auto messages = decoder.decodeFeed(feedData);
     
     // Display results

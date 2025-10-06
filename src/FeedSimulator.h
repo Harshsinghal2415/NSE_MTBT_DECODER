@@ -46,7 +46,7 @@ public:
     ~FeedSimulator() = default;
 
     /**
-     * Generate realistic feed data
+     * Generate realistic binary feed data
      */
     [[nodiscard]] std::vector<std::uint8_t> generateFeed();
 
@@ -54,6 +54,11 @@ public:
      * Generate test feed with errors
      */
     [[nodiscard]] std::vector<std::uint8_t> generateTestFeed();
+
+    /**
+     * Generate real binary message data
+     */
+    [[nodiscard]] std::vector<std::uint8_t> generateBinaryFeed();
 
     /**
      * Get current configuration
@@ -65,11 +70,15 @@ private:
     mutable std::mt19937 rng_;
     
     [[nodiscard]] TradeMessage generateMessage(std::uint32_t sequenceNumber);
+    [[nodiscard]] std::vector<std::uint8_t> serializeMessage(const TradeMessage& message);
     [[nodiscard]] std::uint64_t generateTimestamp() const;
     [[nodiscard]] std::uint32_t generatePrice() const;
     [[nodiscard]] std::uint32_t generateQuantity() const;
     [[nodiscard]] std::uint32_t selectSymbolToken() const;
     [[nodiscard]] TradeSide generateTradeSide() const;
+    void writeUint32(std::vector<std::uint8_t>& buffer, std::size_t offset, std::uint32_t value);
+    void writeUint64(std::vector<std::uint8_t>& buffer, std::size_t offset, std::uint64_t value);
+    [[nodiscard]] std::uint32_t calculateCRC32(const std::uint8_t* data, std::size_t size) const;
 };
 
 } // namespace nse::mtbt

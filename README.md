@@ -77,6 +77,43 @@ g++ -std=c++17 -Wall -Wextra -O2 -I src src/*.cpp -o NSE_MTBT_Decoder
 
 **Windows Note**: The project requires MinGW runtime DLLs. Use `run.bat` for automatic setup, or manually add MinGW's `bin` directory to PATH before running the executable directly.
 
+---
+
+## 🔨 **Quick Start & Building**
+
+### **📦 Cross-Platform Build Support**
+The project supports building on **Windows**, **Linux**, **macOS**, and other Unix-like systems.
+
+#### **🚀 One-Command Build**
+
+**Windows (PowerShell - Recommended):**
+```powershell
+.\build.ps1
+```
+
+**Windows (Command Prompt):**
+```cmd
+.\build.bat
+```
+
+**Linux/macOS/Unix:**
+```bash
+chmod +x build.sh  # First time only
+./build.sh
+```
+
+#### **⚙️ Manual CMake Build**
+```bash
+# Configure and build
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+
+# Run the decoder
+./build/NSE_MTBT_Decoder --count 10
+```
+
+📖 **For detailed build instructions, platform-specific requirements, and troubleshooting, see [BUILD.md](BUILD.md)**
+
 ### **Usage Examples**
 ```bash
 # Windows - using the convenience runner
