@@ -41,12 +41,31 @@ uint32_t token = (data[5] << 8) | data[4];  // Little-endian extraction
 
 ## 🚀 **Quick Start**
 
-```bash
-# Build and run
+### **Method 1: Automated Build & Run (Recommended)**
+```powershell
+# Clone and run with automatic build
 git clone https://github.com/Harshsinghal2415/NSE_MTBT_DECODER.git
 cd NSE_MTBT_DECODER
+.\run.ps1 -Count 10
+
+# Other options
+.\run.ps1 -Count 100 -CSV -Output trades.csv
+.\run.ps1 -Help
+```
+
+### **Method 2: Manual Build**
+```bash
+# Setup environment and build manually
+.\setup_environment.ps1
+g++ -std=c++17 -Wall -Wextra -O2 -I src src/*.cpp -o build/NSE_MTBT_Decoder
+.\build\NSE_MTBT_Decoder.exe --count 10
+```
+
+### **Method 3: CMake Build**
+```bash
+# Traditional CMake approach
 cmake -B build && cmake --build build
-./build/NSE_MTBT_Decoder --count 100
+.\build\NSE_MTBT_Decoder.exe --count 100
 ```
 
 ### **Sample Output**
