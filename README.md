@@ -103,6 +103,3 @@ NSE_MTBT_DECODER/
 
 ---
 
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details.
